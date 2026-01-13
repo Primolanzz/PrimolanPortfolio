@@ -1,10 +1,10 @@
+/* ============================================================
+   CONFIGURAÇÕES GERAIS E RESET
+   ============================================================ */
 * {
   margin: 0;
-
   padding: 0;
-
   box-sizing: border-box;
-
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -14,369 +14,341 @@ html {
 
 body {
   background-image: url(imagens/bg-port.svg);
-
   background-attachment: fixed;
-
   background-size: cover;
-
   background-position: center;
-
   background-repeat: no-repeat;
+  background-color: #0b0b0b; /* Cor de fundo caso a imagem falhe */
+  overflow-x: hidden; /* Evita o balanço lateral no iPhone */
 }
 
+/* ============================================================
+   NAVEGAÇÃO (MENU FIXO)
+   ============================================================ */
 .centralizar-nav {
   display: flex;
-
   justify-content: center;
-
-  margin: 10px auto;
+  width: 100%;
+  position: fixed;
+  top: 10px;
+  z-index: 1000;
 }
 
 .lista-nav {
-  width: 45rem;
-
+  width: 90%;
+  max-width: 45rem;
   border-radius: 15px;
-
-  -webkit-box-shadow: 0px 7px 22px -12px rgba(255, 0, 0, 1);
-
-  -moz-box-shadow: 0px 7px 22px -12px rgba(255, 0, 0, 1);
-
   box-shadow: 0px 7px 22px -12px rgb(70, 23, 238);
-
-  position: fixed;
-
-  z-index: 100;
-
-  padding: 1.5rem;
-
+  padding: 1rem;
   display: flex;
-
   list-style: none;
-
-  gap: 3rem;
-
+  gap: 1.5rem;
   justify-content: center;
-
   align-items: center;
-
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(15px);
+  background: rgba(0, 0, 0, 0.3); /* Melhora visibilidade no mobile */
 }
 
 .menu-link {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: antiquewhite;
+  font-weight: 450;
   position: relative;
+  padding: 0.5rem;
+  transition: 0.3s;
 }
 
 .menu-link::before {
   content: "";
-
   position: absolute;
-
   bottom: 0;
-
   left: 0;
-
   width: 0;
-
   height: 2px;
-
   background: linear-gradient(90deg, #020479, #3200e6, #020479);
-
-  border-radius: 0;
-
   transition: all 0.3s ease-in-out;
 }
 
 .menu-link:hover::before {
   width: 100%;
-
-  border-radius: 50%;
 }
 
-.menu-link {
-  text-decoration: none;
-
-  font-size: 1.2rem;
-
-  color: antiquewhite;
-
-  font-weight: 450;
-
-  position: relative;
-
-  padding: 0.5rem;
+/* ============================================================
+   CABEÇALHO (INÍCIO)
+   ============================================================ */
+.cabecalho {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+  text-align: center;
 }
 
 .foto-perfil {
-  width: 240px;
-
-  height: auto;
-
+  width: 200px; /* Reduzi levemente para caber melhor em telas pequenas */
+  height: 200px;
+  object-fit: cover;
   border-radius: 50%;
-
-  -webkit-box-shadow: 0px 0px 55px -9px rgba(82, 4, 171, 1);
-
-  -moz-box-shadow: 0px 0px 55px -9px rgba(82, 4, 171, 1);
-
   box-shadow: 0px 0px 55px -9px rgba(82, 4, 171, 1);
-
-  transition: all 0.3s ease-in-out;
-
   animation: AnimaBola 7.5s ease-in-out infinite;
 }
 
 @keyframes AnimaBola {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-25px);
-  }
-
+  0%,
   100% {
     transform: translateY(0px);
   }
-}
-
-.foto-perfil:hover {
-  -webkit-box-shadow: 0px 0px 55px -9px rgba(82, 4, 171, 1);
-
-  -moz-box-shadow: 0px 0px 55px -9px rgba(82, 4, 171, 1);
-
-  box-shadow: 0px 0px 55px -9px rgb(4, 0, 252);
-}
-
-.cabecalho {
-  display: flex;
-
-  justify-content: center;
-
-  flex-direction: column;
-
-  align-items: center;
-
-  height: 100vh;
+  50% {
+    transform: translateY(-20px);
+  }
 }
 
 .nome-perfil {
   color: rgb(55, 0, 255);
-
-  margin-top: 0.9rem;
-
-  font-size: 45px;
-
-  margin-bottom: 0.7rem;
-
-  margin-top: 5rem;
+  font-size: clamp(2rem, 8vw, 2.8rem); /* Fonte fluida */
+  margin-top: 2rem;
 }
 
 .subtitulo-perfil {
   color: antiquewhite;
-
   font-weight: 500;
-
-  font-size: 20px;
+  font-size: 1.2rem;
 }
 
 .subtitulo2-perfil {
   color: rgb(255, 255, 255);
-
   font-weight: 300;
-
-  font-size: 20px;
-
+  font-size: 1rem;
   padding-top: 1rem;
+  max-width: 80%;
 }
 
-/* =-=-=-=-=-=-=-=-= SOBRE MIM =-=-=-=-=-=-=-=-=-= */
-
-.Titulo-Sobre {
-  display: flex;
-
-  justify-content: center;
-
-  color: wheat;
-
-  font-size: 2.5rem;
-
-  margin-bottom: 2rem;
-}
-
+/* ============================================================
+   SEÇÃO SOBRE MIM
+   ============================================================ */
 .Sobre-mim {
   min-height: 100vh;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   justify-content: center;
-
-  gap: 40px;
-
-  scroll-margin-top: 110px;
+  padding: 100px 20px;
 }
 
 .div-paragrafo {
-  transform: translateY(-140px);
+  width: 100%;
+  max-width: 45rem;
+  /* Removido o translateY negativo que quebrava o mobile */
+}
 
+.Titulo-Sobre {
+  text-align: center;
   color: wheat;
-
-  font-size: 1.2rem;
-
-  width: 45rem;
-
-  height: auto;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .div-paragrafo2 {
   color: wheat;
-
-  width: 45rem;
-
-  border-radius: 15px;
-
-  height: auto;
-
-  padding: 3rem;
-
+  width: 100%;
   background: rgba(255, 255, 255, 0.05);
-
   border-radius: 16px;
-
+  padding: 2rem;
   backdrop-filter: blur(5px);
-
   border: 1px solid rgb(36, 36, 36);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.paragrafo {
-  margin-bottom: 1rem;
+.paragrafo,
+.info-pessoais2 {
+  margin-bottom: 1.2rem;
+  line-height: 1.6;
+  font-size: 1.1rem;
 }
 
 .subtitulo2 {
   color: wheat;
-
-  padding-top: 1.2rem;
-
+  margin: 1.5rem 0 1rem;
   font-weight: 700;
 }
 
+/* ÍCONES DE EXPERIÊNCIA */
+.todos-exp {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .caixa-icone {
-  margin-top: 1.2rem;
-
-  width: 6.5rem;
-
-  height: auto;
-
-  margin-top: 2rem;
-
-  background: rgba(26, 26, 26, 0.05);
-
+  background: rgba(26, 26, 26, 0.3);
   border-radius: 10px;
-
-  backdrop-filter: blur(5px);
-
   border: 1px solid rgb(46, 46, 46);
+  transition: 0.3s;
+  padding: 10px 15px;
+
+  width: 115px;
+  height: 115px;
 
   display: flex;
-
-  justify-content: center;
-
   align-items: center;
-
-  transition: ease-in-out 0.3s;
+  gap: 10px;
 }
 
 .caixa-icone:hover {
-  box-shadow: 8px 9px 31px -7px rgba(55, 19, 163, 1);
-
+  box-shadow: 0px 0px 20px rgba(55, 19, 163, 0.6);
   transform: translateY(-5px);
-
-  cursor: pointer;
-}
-
-.icone {
-  padding-top: 5px;
-
-  padding-bottom: 5px;
-
-  padding-left: 35px;
-
-  padding-right: 35px;
-
-  display: flex;
-
-  flex-direction: row;
-
-  align-items: center;
-
-  gap: 5px;
 }
 
 .nomes-exp {
-  font-weight: 500;
+    font-weight: 500;
+    color: wheat;
+    font-size: 0.9rem;
+    margin: 0;
+    text-align: center;
 }
 
-.todos-exp {
+.icone {
+    display: flex;
+    flex-direction: column; /* FORÇA o texto para baixo do ícone */
+    align-items: center;    /* Centraliza os dois horizontalmente */
+    justify-content: center; /* Centraliza os dois verticalmente */
+    gap: 10px;              /* Espaço entre a imagem e o nome (HTML, JS, etc) */
+    width: 100%;
+    padding: 0;             /* ZERAR os paddings é o segredo para centralizar */
+}
+
+/* ============================================================
+   SEÇÃO PROJETOS
+   ============================================================ */
+.Projetos {
+  padding: 100px 20px;
   display: flex;
-
-  gap: 20px;
+  flex-direction: column;
+  align-items: center;
 }
 
+.titulo-janela-projeto {
+  color: wheat;
+  font-size: 2.5rem;
+  margin-bottom: 3rem;
+}
+
+.todos-projetos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.div-projetos {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  border: 1px solid rgb(36, 36, 36);
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.div-projetos:hover {
+  box-shadow: 8px 9px 31px -7px rgba(55, 19, 163, 1);
+  transform: translateY(-10px);
+}
+
+.img-projeto {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.caixas-texto-projeto {
+  padding: 1.5rem;
+  color: wheat;
+}
+
+/* ============================================================
+   CONTATO
+   ============================================================ */
+.contatos {
+  padding: 100px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contatos-titulo {
+  color: white;
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.formulario-contato {
+  background: rgba(255, 255, 255, 0.05);
+  width: 100%;
+  max-width: 600px;
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid #333;
+}
+
+.campo-form {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  color: wheat;
+  border: 1px solid #3f3f3f;
+  margin-bottom: 1.5rem;
+  outline: none;
+}
+
+.btn-form {
+  width: 100%;
+  padding: 1rem;
+  background-color: #3200e6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-form:hover {
+  background-color: #1e008a;
+}
+
+/* ============================================================
+   ELEMENTOS EXTRAS (SCROLL DOWN)
+   ============================================================ */
 .scroll-down {
   text-decoration: none;
-
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
-  margin-top: 50px;
-
-  cursor: pointer;
-
-  transition: opacity 0.5s ease, visibility 0.5s;
-
   position: absolute;
-
-  bottom: 20px;
-
-  left: 50%;
-
-  transform: translateX(-50%);
-}
-
-.scroll-down.fade-out {
-  opacity: 0;
-
-  visibility: hidden;
-
-  transition: opacity 0.5s ease, visibility 0.5s;
+  bottom: 30px;
 }
 
 .scroll-down p {
-  color: #ffffff;
-
-  font-size: 0.9rem;
-
-  margin-bottom: 10px;
-
+  color: white;
   opacity: 0.7;
+  font-size: 0.8rem;
+  margin-bottom: 5px;
 }
 
 .arrow {
-  width: 12px;
-
-  height: 12px;
-
-  border-right: 2px solid #5d3fd3; /* Cor roxa do seu tema */
-
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #5d3fd3;
   border-bottom: 2px solid #5d3fd3;
-
   transform: rotate(45deg);
-
   animation: bounce 2s infinite;
 }
 
@@ -388,317 +360,49 @@ body {
   100% {
     transform: translateY(0) rotate(45deg);
   }
-
   40% {
     transform: translateY(10px) rotate(45deg);
   }
-
-  60% {
-    transform: translateY(5px) rotate(45deg);
-  }
 }
 
-/* =-=-=-=-=-=-=- PROJETOS =-=-=-=-=-=-= */
-
-.img-projeto {
-  width: 100%;
-
-  height: 200px;
-
-  object-fit: cover;
+.fade-out {
+  opacity: 0;
+  visibility: hidden;
 }
 
-.Projetos {
-  padding: 2rem;
-
-  min-height: 100vh;
-
-  display: flex;
-
-  flex-direction: column;
-
-  justify-content: center; /* Centraliza verticalmente o conteúdo */
-
-  align-items: center; /* Centraliza horizontalmente */
-}
-
-.todos-projetos {
-  display: grid;
-
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-  gap: 2rem;
-
-  max-width: 1200px;
-
-  margin: 0 auto;
-}
-
-.div-projetos {
-  background: rgba(255, 255, 255, 0.05);
-
-  border-radius: 16px;
-
-  backdrop-filter: blur(5px);
-
-  border: 1px solid rgb(36, 36, 36);
-
-  overflow: hidden;
-
-  transition: ease-in-out 0.3s;
-}
-
-.div-projetos:hover {
-  -webkit-box-shadow: 8px 9px 31px -7px rgba(55, 19, 163, 1);
-
-  -moz-box-shadow: 8px 9px 31px -7px rgba(55, 19, 163, 1);
-
-  box-shadow: 8px 9px 31px -7px rgba(55, 19, 163, 1);
-
-  transform: translateY(-10px);
-}
-
-.titulo-projetos,
-.info-projetos,
-.titulo-janela-projeto {
-  color: wheat;
-}
-
-.titulo-janela-projeto {
-  display: flex;
-
-  justify-content: center;
-
-  margin-bottom: 3rem;
-
-  font-size: 2.5rem;
-}
-
-.info-projetos {
-  line-height: 1.25rem;
-}
-
-.caixas-texto-projeto {
-  padding: 1.5rem;
-}
-
-.titulo-projetos {
-  margin-bottom: 0.5rem;
-
-  font-size: 1.2rem;
-}
-
-/* =-=-=-=-=-=-==- CONTATO =-=-=-=-=-=-=-= */
-
-.contatos {
-  width: 100%;
-
-  height: 100vh;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-direction: column;
-}
-
-.contatos-titulo {
-  color: white;
-
-  font-size: 2.5rem;
-
-  margin-bottom: 3rem;
-}
-
-.campo-form {
-  width: 100%;
-
-  padding: 1rem;
-
-  background: rgba(255, 255, 255, 0.05);
-
-  border-radius: 10px;
-
-  color: wheat;
-
-  border: #3f3f3f 1px solid;
-
-  outline: none;
-
-  transition: ease-in-out 0.2s;
-}
-
-.campo-form:focus {
-  border: #1e008a 1px solid;
-}
-
-.grupo-form {
-  margin-bottom: 1.5rem;
-
-  width: 100%;
-}
-
-.formulario-contato {
-  background: rgba(255, 255, 255, 0.05);
-
-  width: 100%;
-
-  max-width: 600px;
-
-  height: auto;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  flex-direction: column;
-
-  padding: 3rem;
-
-  border-radius: 16px;
-}
-
-.btn-form {
-  color: wheat;
-
-  padding: 1rem 2rem;
-
-  border: none;
-
-  border-radius: 10px;
-
-  cursor: pointer;
-
-  font-weight: bold;
-
-  width: 100%;
-
-  transition: ease-in-out 0.3s;
-
-  background-color: #3200e6;
-}
-
-.btn-form:hover {
-  background-color: #1e008a;
-}
-
-/* responsividade */
-
+/* ============================================================
+   RESPONSIVIDADE (MOBILE & TABLET)
+   ============================================================ */
 @media (max-width: 768px) {
-  /* 1. Ajuste da Navegação - Transforma em barra horizontal flexível */
-
   .lista-nav {
-    width: 95%; /* Ocupa quase toda a largura */
-
-    gap: 1rem; /* Diminui o espaço entre os itens */
-
-    padding: 1rem;
-
-    font-size: 0.9rem;
+    gap: 0.8rem;
+    padding: 0.8rem;
   }
 
   .menu-link {
-    font-size: 1rem;
-
-    padding: 0.2rem;
+    font-size: 0.85rem;
   }
-
-  /* 2. Ajuste do Cabeçalho (Início) */
 
   .nome-perfil {
-    font-size: 32px; /* Diminui o título para não quebrar linha */
-
-    text-align: center;
+    margin-top: 1rem;
   }
 
-  .subtitulo2-perfil {
-    font-size: 16px;
-
-    text-align: center;
-
-    padding: 1rem 20px; /* Adiciona respiro nas laterais */
-  }
-
-  /* 3. Ajuste da Seção "Sobre Mim" - Onde estava o maior problema */
-
-  .div-paragrafo,
   .div-paragrafo2 {
-    width: 90% !important; /* Força a largura a caber na tela */
-
-    transform: translateY(0); /* Remove o deslocamento do PC */
-
-    margin: 0 auto;
-  }
-
-  .Sobre-mim {
-    padding-top: 80px; /* Dá espaço para a nav fixa */
-
-    min-height: auto;
-  }
-
-  .div-paragrafo {
-    margin-top: 50px;
-  }
-
-  /* Ajusta os ícones de experiência para empilhar se não couberem */
-
-  .todos-exp {
-    display: flex;
-
-    flex-wrap: wrap; /* Permite que os ícones pulem para a linha de baixo */
-
-    justify-content: center;
-
-    gap: 10px;
-  }
-
-  .caixa-icone {
-    width: 100px; /* Tamanho fixo menor para os ícones no mobile */
-  }
-
-  .icone {
-    padding: 10px;
-  }
-
-  /* 4. Ajuste dos Projetos */
-
-  .titulo-janela-projeto {
-    font-size: 2rem;
-
-    margin-top: 40px;
-  }
-
-  .todos-projetos {
-    grid-template-columns: 1fr; /* Força uma coluna só */
-
-    padding: 10px;
-  }
-
-  /* 5. Ajuste do Formulário de Contato */
-
-  .formulario-contato {
-    width: 90%;
-
     padding: 1.5rem;
   }
 
-  .contatos-titulo {
-    font-size: 2rem;
+  .todos-exp {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
   }
 
-  .paragrafo {
-    font-size: 16px;
+  .caixa-icone {
+    justify-content: center;
   }
 
-  .info-pessoais2 {
-    font-size: 16px;
-  }
-
-  .subtitulo2 {
-    font-size: 14px;
+  .contatos-titulo,
+  .titulo-janela-projeto,
+  .Titulo-Sobre {
+    font-size: 1.8rem;
   }
 }
