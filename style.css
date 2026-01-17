@@ -18,8 +18,8 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  background-color: #0b0b0b; /* Cor de fundo caso a imagem falhe */
-  overflow-x: hidden; /* Evita o balanço lateral no iPhone */
+  background-color: #0b0b0b;
+  overflow-x: hidden; 
 }
 
 /* ============================================================
@@ -46,7 +46,7 @@ body {
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(15px);
-  background: rgba(0, 0, 0, 0.3); /* Melhora visibilidade no mobile */
+  background: rgba(0, 0, 0, 0.3); 
 }
 
 .menu-link {
@@ -88,7 +88,7 @@ body {
 }
 
 .foto-perfil {
-  width: 200px; /* Reduzi levemente para caber melhor em telas pequenas */
+  width: 200px; 
   height: 200px;
   object-fit: cover;
   border-radius: 50%;
@@ -108,7 +108,7 @@ body {
 
 .nome-perfil {
   color: rgb(55, 0, 255);
-  font-size: clamp(2rem, 8vw, 2.8rem); /* Fonte fluida */
+  font-size: clamp(2rem, 8vw, 2.8rem); 
   margin-top: 2rem;
   margin-bottom: 0.8rem;
 }
@@ -145,7 +145,7 @@ body {
 .div-paragrafo {
   width: 100%;
   max-width: 45rem;
-  /* Removido o translateY negativo que quebrava o mobile */
+
 }
 
 .Titulo-Sobre {
@@ -220,12 +220,12 @@ body {
 
 .icone {
     display: flex;
-    flex-direction: column; /* FORÇA o texto para baixo do ícone */
-    align-items: center;    /* Centraliza os dois horizontalmente */
-    justify-content: center; /* Centraliza os dois verticalmente */
-    gap: 10px;              /* Espaço entre a imagem e o nome (HTML, JS, etc) */
+    flex-direction: column;
+    align-items: center;   
+    justify-content: center; 
+    gap: 10px;              
     width: 100%;
-    padding: 0;             /* ZERAR os paddings é o segredo para centralizar */
+    padding: 0;
 }
 
 /* ============================================================
