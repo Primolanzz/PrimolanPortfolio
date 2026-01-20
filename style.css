@@ -107,7 +107,10 @@ body {
 }
 
 .nome-perfil {
-  color: rgb(55, 0, 255);
+    background: linear-gradient(90deg,rgba(96, 6, 207, 1) 0%, rgba(0, 43, 199, 1) 50%, rgba(96, 6, 207, 1) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   font-size: clamp(2rem, 8vw, 2.8rem); 
   margin-top: 2rem;
   margin-bottom: 0.8rem;
